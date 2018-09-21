@@ -26,11 +26,11 @@ public class App {
     }
 
     // Sort
+    int processCount = 0;
     //// Bubble sort
     // int[] numbers = {5, 4, 3, 2, 1};
     int[] numbers = {1, 2, 3, 4, 5};
     int swapCount = -1;
-    int processCount = 0;
     int unsortedMaxIndex = numbers.length - 1;
     int swapTempInt = 0;
 
@@ -53,6 +53,7 @@ public class App {
     System.out.println(String.format("バブルソート後の配列は%sです", Arrays.toString(numbers)));
 
     // Insertion sort
+    processCount = 0;
     int[] newNums = {5, 4, 3, 2, 1};
     numbers = newNums;
     int currentIndex = 1;
@@ -71,6 +72,7 @@ public class App {
         for (searchPosiIndex = checkIndex; searchPosiIndex >= 0; searchPosiIndex--) {
           if (currentNum < numbers[checkIndex]) {
             numbers[searchPosiIndex + 1] = numbers[searchPosiIndex];
+              processCount++;
           } else {
             break;
           }
@@ -85,5 +87,21 @@ public class App {
     System.out.println(String.format("処理回数は%sです", processCount));
     System.out.println(String.format("挿入ソート後の配列は%sです", Arrays.toString(numbers)));
 
+    System.out.println(String.format("フィボナッチ関数の結果は%sです", fibonacciSequence(9)));
+
   }
+
+
+  // Fibonacci Sequence
+  private static int fibonacciSequence(int times) {
+      switch (times) {
+          case 0:
+              return 0;
+          case 1:
+              return 1;
+          default:
+              return fibonacciSequence(times - 2) + fibonacciSequence(times -1);
+      }
+  }
+
 }
